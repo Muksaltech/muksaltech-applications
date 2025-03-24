@@ -13,9 +13,9 @@ export default function AppCard() {
     </p>
   
     <div className="flex justify-end gap-6 text-[0.85rem] underline text-gray-500">
-      <a href="#" className="hover:text-gray-800 whitespace-nowrap">preview</a>
-      <a href="#" className="hover:text-gray-800 whitespace-nowrap">launch</a>
-      <a href="#" className="hover:text-gray-800 whitespace-nowrap">download code</a>
+      <a href="/apps/App1/App1" className="hover:text-gray-800 whitespace-nowrap">preview</a>
+      <a href="/apps/App1/App1" className="hover:text-gray-800 whitespace-nowrap">launch</a>
+      <a href="/apps/App1/App1" className="hover:text-gray-800 whitespace-nowrap">download code</a>
     </div>
     </div>
 
