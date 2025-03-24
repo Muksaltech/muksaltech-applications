@@ -1,5 +1,19 @@
+import AppCard from "../Components/AppCard";
+
 export default function Home() {
-    return <h2 className="font-montserrat text-2xl font-bold">This is the main portfolio</h2>;
+    return <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+    <AppCard />
+    <AppCard />
+    <AppCard />
+    <AppCard />
+    <AppCard />
+    <AppCard />
+    <AppCard />
+    <AppCard />
+    <AppCard />
+    <AppCard />
+  </div>
+  
   }
   
   
