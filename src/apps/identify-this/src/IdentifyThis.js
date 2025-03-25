@@ -1,25 +1,15 @@
 import logo from './logo.svg';
 import './IdentifyThis.css';
+import SelectOptionsPage from './pages/SelectOptionsPage';
+import GamePlayPage from './pages/GamePlayPage';
 
-function IdentiftThis() {
+
+function IdentifyThis() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/IdentiftThisde.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SelectOptionsPage />
+    </>
   );
 }
 
-export default IdentiftThis;
+export default IdentifyThis;
