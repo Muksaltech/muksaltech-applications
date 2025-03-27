@@ -1,7 +1,9 @@
 //import OptionSampleFlag from '../assets/images/usa_flag.jpg'
 
-export default function GameOptionsCard({optionImage, CategoryText}) {
-    return <div className="">
+
+//the 3 will be changed to Id alter
+export default function GameOptionsCard({ optionImage, CategoryText, sendSelectedOptionCardData, Id }) {
+  return <div className="" onClick={() => { sendSelectedOptionCardData(Id) }}>
       <div className="relative w-72 h-[460px] rounded-lg overflow-hidden shadow-lg transition-transform duration-100 transform hover:scale-105 cursor-pointer hover:shadow-xl">
   {/* Background Image */}
   <img

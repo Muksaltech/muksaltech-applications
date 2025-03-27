@@ -6,7 +6,7 @@ export default function ImagePanel({loadedImage}) {
         <img
             src={loadedImage}
             alt=""
-            className="w-[30rem] w-[30rem] object-cover rounded-lg shadow-lg"
+                className="w-100 h-96 object-cover rounded-lg shadow-lg"
         />
         </>
     )

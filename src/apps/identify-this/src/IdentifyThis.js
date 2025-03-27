@@ -1,13 +1,239 @@
 //import logo from './logo.svg';
+
+import React, { useEffect, useState } from 'react';
 import './IdentifyThis.css';
 import SelectOptionsPage from './pages/SelectOptionsPage';
-//import GamePlayPage from './pages/GamePlayPage';
+import GamePlayPage from './pages/GamePlayPage';
+import EndResultPage from './pages/EndResultPage';
+
 
 
 function IdentifyThis() {
+  const [optionCardselected, setOptionCardSelected] = useState(true);
+  const [gamePlayPageLoaded, setGamePlayPageLoaded] = useState(false);
+  const [gamePlayComplete, setGamePlayComplete] = useState(false);
+
+  const [quizData, setQuizData] = useState([{}]);
+  const [selectedQuizData, setSelectedQuizData] = useState([{}]); // to take game data
+
+  const OverallData = [
+      {
+        "id": 1,
+        "gameplayTitle": "Name this flag's country",
+        "quizDetails": [
+          {
+            "currentImage": require("./assets/images/world_flags/uk_flag.jpg"),
+            "imageAnswer": "United Kingdom",
+            "multipleChoices": ["Australia", "United Kingdom", "New Zealand", "United States"]
+          },
+          {
+            "currentImage": require("./assets/images/world_flags/china.jpg"),
+            "imageAnswer": "China",
+            "multipleChoices": ["Japan", "China", "South Korea", "Vietnam"]
+          },
+          {
+            "currentImage": require("./assets/images/world_flags/japan.jpg"),
+            "imageAnswer": "Japan",
+            "multipleChoices": ["Japan", "China", "South Korea", "Thailand"]
+          },
+          {
+            "currentImage": require("./assets/images/world_flags/south_africa.jpg"),
+            "imageAnswer": "South Africa",
+            "multipleChoices": ["Kenya", "South Africa", "Ghana", "Nigeria"]
+          },
+          {
+            "currentImage": require("./assets/images/world_flags/brazil.jpg"),
+            "imageAnswer": "Brazil",
+            "multipleChoices": ["Brazil", "Argentina", "Portugal", "Mexico"]
+          },
+          {
+            "currentImage": require("./assets/images/world_flags/france.jpg"),
+            "imageAnswer": "France",
+            "multipleChoices": ["Netherlands", "Italy", "France", "Luxembourg"]
+          },
+          {
+            "currentImage": require("./assets/images/world_flags/united_states.jpg"),
+            "imageAnswer": "United States",
+            "multipleChoices": ["United States", "Canada", "Australia", "United Kingdom"]
+          },
+          {
+            "currentImage": require("./assets/images/world_flags/india.jpg"),
+            "imageAnswer": "India",
+            "multipleChoices": ["India", "Pakistan", "Bangladesh", "Nepal"]
+          },
+          {
+            "currentImage": require("./assets/images/world_flags/nigeria.jpg"),
+            "imageAnswer": "Nigeria",
+            "multipleChoices": ["Ghana", "South Africa", "Nigeria", "Cameroon"]
+          },
+          {
+            "currentImage": require("./assets/images/world_flags/canada.jpg"),
+            "imageAnswer": "Canada",
+            "multipleChoices": ["Austria", "Switzerland", "Canada", "Denmark"]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "gameplayTitle": "Name this logo's company",
+        "quizDetails": [
+          {
+            "currentImage": require("./assets/images/company_logos/apple.jpg"),
+            "imageAnswer": "Apple",
+            "multipleChoices": ["Microsoft", "Apple", "Intel", "Dell"]
+          },
+          {
+            "currentImage": require("./assets/images/company_logos/Starbucks.jpg"),
+            "imageAnswer": "Starbucks",
+            "multipleChoices": ["Nike", "Adidas", "Puma", "Starbucks"]
+          },
+          {
+            "currentImage": require("./assets/images/company_logos/mc_donald.jpg"),
+            "imageAnswer": "McDonald's",
+            "multipleChoices": ["McDonald's", "Burger King", "KFC", "Subway"]
+          },
+          {
+            "currentImage": require("./assets/images/company_logos/Shell.jpg"),
+            "imageAnswer": "Shell",
+            "multipleChoices": ["Google", "Facebook", "Amazon", "Shell"]
+          },
+          {
+            "currentImage": require("./assets/images/company_logos/pepsi.jpg"),
+            "imageAnswer": "Pepsi",
+            "multipleChoices": ["eBay", "Amazon", "Pepsi", "Walmart"]
+          },
+          {
+            "currentImage": require("./assets/images/company_logos/facebook.jpg"),
+            "imageAnswer": "Facebook",
+            "multipleChoices": ["Facebook", "Twitter", "Instagram", "LinkedIn"]
+          },
+          {
+            "currentImage": require("./assets/images/company_logos/toyota.jpg"),
+            "imageAnswer": "Toyota",
+            "multipleChoices": ["Honda", "Nissan", "Toyota", "Hyundai"]
+          },
+          {
+            "currentImage": require("./assets/images/company_logos/play_station.jpg"),
+            "imageAnswer": "Playstation",
+            "multipleChoices": ["BMW", "Playstation", "Mercedes-Benz", "Volkswagen"]
+          },
+          {
+            "currentImage": require("./assets/images/company_logos/mercedes.jpg"),
+            "imageAnswer": "Mercedes-Benz",
+            "multipleChoices": ["Lexus", "Mercedes-Benz", "Jaguar", "Porsche"]
+          },
+          {
+            "currentImage": require("./assets/images/company_logos/youtube.jpg"),
+            "imageAnswer": "YouTube",
+            "multipleChoices": ["Netflix", "YouTube", "TikTok", "Vimeo"]
+          }
+        ]
+      },
+      {
+      "id": 3,
+      "gameplayTitle": "Name this American president",
+      "quizDetails": [
+        {
+          "currentImage": require("./assets/images/us_presidents/abraham_lincoln.jpg"),
+          "imageAnswer": "Abraham Lincoln",
+          "multipleChoices": ["Ulysses S. Grant", "Abraham Lincoln", "Andrew Jackson", "James Monroe"]
+        },
+        {
+          "currentImage": require("./assets/images/us_presidents/barack_obama.jpg"),
+          "imageAnswer": "Barack Obama",
+          "multipleChoices": ["Barack Obama", "Joe Biden", "Bill Clinton", "George W. Bush"]
+        },
+        {
+          "currentImage": require("./assets/images/us_presidents/bill_clinton.jpg"),
+          "imageAnswer": "Bill Clinton",
+          "multipleChoices": ["Bill Clinton", "Joe Biden", "Barack Obama", "George W. Bush"]
+        },
+        {
+          "currentImage": require("./assets/images/us_presidents/donald_trump.jpg"),
+          "imageAnswer": "Donald Trump",
+          "multipleChoices": ["Ronald Reagan", "Donald Trump", "George H. W. Bush", "Joe Biden"]
+        },
+        {
+          "currentImage": require("./assets/images/us_presidents/franklin_roosevelt.jpg"),
+          "imageAnswer": "Franklin D. Roosevelt",
+          "multipleChoices": ["Franklin D. Roosevelt", "Theodore Roosevelt", "Harry S. Truman", "Woodrow Wilson"]
+        },
+        {
+          "currentImage": require("./assets/images/us_presidents/george_washignton.jpg"),
+          "imageAnswer": "George Washington",
+          "multipleChoices": ["George Washington", "John Adams", "Thomas Jefferson", "James Madison"]
+        },
+        {
+          "currentImage": require("./assets/images/us_presidents/joe_biden.jpg"),
+          "imageAnswer": "Joe Biden",
+          "multipleChoices": ["Bill Clinton", "Donald Trump", "Joe Biden", "George W. Bush"]
+        },
+        {
+          "currentImage": require("./assets/images/us_presidents/john_f_kenedy.jpg"),
+          "imageAnswer": "John F. Kennedy",
+          "multipleChoices": ["John F. Kennedy", "Ronald Reagan", "Richard Nixon", "Lyndon B. Johnson"]
+        },
+        {
+          "currentImage": require("./assets/images/us_presidents/ronald_reagan.jpg"),
+          "imageAnswer": "Ronald Reagan",
+          "multipleChoices": ["Ronald Reagan", "George H. W. Bush", "Gerald Ford", "Richard Nixon"]
+        },
+        {
+          "currentImage": require("./assets/images/us_presidents/Thodore_roosevelt.jpg"),
+          "imageAnswer": "Theodore Roosevelt",
+          "multipleChoices": ["Theodore Roosevelt", "Franklin D. Roosevelt", "William McKinley", "Woodrow Wilson"]
+        }
+      ]
+    }
+  ]
+
+  useEffect(() => {
+    //These will be genetrated by API call later
+    //TO, add the rest of the objects later
+    //embed the above data in a state variable
+    setQuizData(OverallData);
+
+  }, [OverallData])
+  
+  const getDataFromSelectOptionPageAndLoadGamePlayPage = (dataFromSelectOptionPage)=>{
+    //load the gameplay page
+    setOptionCardSelected(false)
+    setGamePlayPageLoaded(true)
+    setGamePlayComplete(false) // TODO - refactor this into independent method
+
+    //then use the id data to load the content of the gameplay page
+    //it will filter through the json of data using ID and then return the filtered data 
+ 
+
+    //set selected Data on the filtered overall data
+    setSelectedQuizData(quizData.filter(item => item.id === dataFromSelectOptionPage));
+
+  }
+
+
+  const getDataFromGamePlayPageAndLoadEndResultPage = (dataFromGamePlayPage) => {
+    //load the endResult page
+    setOptionCardSelected(false)
+    setGamePlayPageLoaded(false)
+    setGamePlayComplete(true) // TODO - refactor this into independent method
+
+  }
+
   return (
     <>
-      <SelectOptionsPage />
+      {optionCardselected && // entry point
+        <SelectOptionsPage
+        sendIdDataToIdentifyThisContainer={getDataFromSelectOptionPageAndLoadGamePlayPage} />
+      }
+      {gamePlayPageLoaded &&
+        <GamePlayPage
+        filteredQuizData={selectedQuizData}
+        sendEndGameData={getDataFromGamePlayPageAndLoadEndResultPage}
+      />
+      }
+      {gamePlayComplete &&
+        <EndResultPage />
+      }
     </>
   );
 }

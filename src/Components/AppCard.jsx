@@ -1,6 +1,5 @@
 import { MdArrowForwardIos } from "react-icons/md";
 
-
 export default function AppCard() {
     return <div className="flex flex-row w-full mx-auto my-4 p-2 sm:p-6 md:p-6 border-b border-gray-300 font-maseratti max-w-6xl">
     <div className="w-full">
