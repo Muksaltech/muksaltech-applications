@@ -3,16 +3,18 @@ import { useEffect, useState } from "react";
 export default function ScoreProgress({ responseStatus, currentScoreIndex, numberOfScoreBubbles }) {
     const [statusHistory, setStatusHistory] = useState(Array(numberOfScoreBubbles).fill(null));
     useEffect(() => {
-       // alert(`${responseStatus}, ${currentScoreIndex}`);
+      
         if (responseStatus && currentScoreIndex < statusHistory.length) {
             setStatusHistory(prev => {
+               //  alert(`${responseStatus}, ${currentScoreIndex}`);
                 const updated = [...prev]; //push
-                updated[currentScoreIndex] = responseStatus;
+                //alert(updated)
+                updated[currentScoreIndex-1] = responseStatus; // explain this
                 return updated;
             });
         }
        // console.log(statusHistory)
-    }, [responseStatus, currentScoreIndex, statusHistory]);
+    }, [responseStatus, currentScoreIndex]);
 
     return (
         <div className="flex gap-2 mt-4">
