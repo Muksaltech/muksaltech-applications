@@ -142,7 +142,7 @@ export default function GamePlayPage({ filteredQuizData, sendEndGameData }) {
     return (
         <div className="min-h-screen bg-gray-900 text-white p-4 flex flex-col items-center">
             {/* Title */}
-            <h1 className="text-3xl font-bold mb-6">{gameplayTitle}</h1>
+            <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mb-6">{gameplayTitle}</h1>
             {/* Main Image Section */}
             <div className="relative flex flex-col items-center">
                 <ImagePanel loadedImage={quizDetails[ansSetIdex].currentImage} />

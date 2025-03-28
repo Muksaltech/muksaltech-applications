@@ -29,11 +29,11 @@ export default function AnswerGrid({ sendAnswerStatus, sendEndGameData, quizDeta
     }
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 w-full max-w-xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 mt-8 w-full max-w-xl">
             {quizDetails[currentAnswerSetIndex].multipleChoices.map((choice, idx) => (
                 <button
                     key={idx}
-                    className="bg-gray-800 hover:bg-gray-700 py-4 px-6 rounded-lg"
+                    className="bg-gray-800 hover:bg-gray-700 py-2 sm:py-4 px-6  rounded-lg"
                     onClick={() => displayNextImageAndAnswerChoices(choice)}
                 >
                     {choice}
