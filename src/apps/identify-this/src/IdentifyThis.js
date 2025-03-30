@@ -6,6 +6,9 @@ import SelectOptionsPage from './pages/SelectOptionsPage';
 import GamePlayPage from './pages/GamePlayPage';
 import EndResultPage from './pages/EndResultPage';
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 
 function IdentifyThis() {
@@ -16,120 +19,123 @@ function IdentifyThis() {
   const [quizData, setQuizData] = useState([{}]);
   const [selectedQuizData, setSelectedQuizData] = useState([{}]); // to take game data
 
+  const [endResultData, setEndResultData] = useState([{}]); // to take game data
+
+
   const OverallData = [
-      {
-        "id": 1,
-        "gameplayTitle": "Name this flag's country",
-        "quizDetails": [
-          {
-            "currentImage": require("./assets/images/world_flags/uk_flag.jpg"),
-            "imageAnswer": "United Kingdom",
-            "multipleChoices": ["Australia", "United Kingdom", "New Zealand", "United States"]
-          },
-          {
-            "currentImage": require("./assets/images/world_flags/china.jpg"),
-            "imageAnswer": "China",
-            "multipleChoices": ["Japan", "China", "South Korea", "Vietnam"]
-          },
-          {
-            "currentImage": require("./assets/images/world_flags/japan.jpg"),
-            "imageAnswer": "Japan",
-            "multipleChoices": ["Japan", "China", "South Korea", "Thailand"]
-          },
-          {
-            "currentImage": require("./assets/images/world_flags/south_africa.jpg"),
-            "imageAnswer": "South Africa",
-            "multipleChoices": ["Kenya", "South Africa", "Ghana", "Nigeria"]
-          },
-          {
-            "currentImage": require("./assets/images/world_flags/brazil.jpg"),
-            "imageAnswer": "Brazil",
-            "multipleChoices": ["Brazil", "Argentina", "Portugal", "Mexico"]
-          },
-          {
-            "currentImage": require("./assets/images/world_flags/france.jpg"),
-            "imageAnswer": "France",
-            "multipleChoices": ["Netherlands", "Italy", "France", "Luxembourg"]
-          },
-          {
-            "currentImage": require("./assets/images/world_flags/united_states.jpg"),
-            "imageAnswer": "United States",
-            "multipleChoices": ["United States", "Canada", "Australia", "United Kingdom"]
-          },
-          {
-            "currentImage": require("./assets/images/world_flags/india.jpg"),
-            "imageAnswer": "India",
-            "multipleChoices": ["India", "Pakistan", "Bangladesh", "Nepal"]
-          },
-          {
-            "currentImage": require("./assets/images/world_flags/nigeria.jpg"),
-            "imageAnswer": "Nigeria",
-            "multipleChoices": ["Ghana", "South Africa", "Nigeria", "Cameroon"]
-          },
-          {
-            "currentImage": require("./assets/images/world_flags/canada.jpg"),
-            "imageAnswer": "Canada",
-            "multipleChoices": ["Austria", "Switzerland", "Canada", "Denmark"]
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "gameplayTitle": "Name this logo's company",
-        "quizDetails": [
-          {
-            "currentImage": require("./assets/images/company_logos/apple.jpg"),
-            "imageAnswer": "Apple",
-            "multipleChoices": ["Microsoft", "Apple", "Intel", "Dell"]
-          },
-          {
-            "currentImage": require("./assets/images/company_logos/Starbucks.jpg"),
-            "imageAnswer": "Starbucks",
-            "multipleChoices": ["Nike", "Adidas", "Puma", "Starbucks"]
-          },
-          {
-            "currentImage": require("./assets/images/company_logos/mc_donald.jpg"),
-            "imageAnswer": "McDonald's",
-            "multipleChoices": ["McDonald's", "Burger King", "KFC", "Subway"]
-          },
-          {
-            "currentImage": require("./assets/images/company_logos/Shell.jpg"),
-            "imageAnswer": "Shell",
-            "multipleChoices": ["Google", "Facebook", "Amazon", "Shell"]
-          },
-          {
-            "currentImage": require("./assets/images/company_logos/pepsi.jpg"),
-            "imageAnswer": "Pepsi",
-            "multipleChoices": ["eBay", "Amazon", "Pepsi", "Walmart"]
-          },
-          {
-            "currentImage": require("./assets/images/company_logos/facebook.jpg"),
-            "imageAnswer": "Facebook",
-            "multipleChoices": ["Facebook", "Twitter", "Instagram", "LinkedIn"]
-          },
-          {
-            "currentImage": require("./assets/images/company_logos/toyota.jpg"),
-            "imageAnswer": "Toyota",
-            "multipleChoices": ["Honda", "Nissan", "Toyota", "Hyundai"]
-          },
-          {
-            "currentImage": require("./assets/images/company_logos/play_station.jpg"),
-            "imageAnswer": "Playstation",
-            "multipleChoices": ["BMW", "Playstation", "Mercedes-Benz", "Volkswagen"]
-          },
-          {
-            "currentImage": require("./assets/images/company_logos/mercedes.jpg"),
-            "imageAnswer": "Mercedes-Benz",
-            "multipleChoices": ["Lexus", "Mercedes-Benz", "Jaguar", "Porsche"]
-          },
-          {
-            "currentImage": require("./assets/images/company_logos/youtube.jpg"),
-            "imageAnswer": "YouTube",
-            "multipleChoices": ["Netflix", "YouTube", "TikTok", "Vimeo"]
-          }
-        ]
-      },
-      {
+    {
+      "id": 1,
+      "gameplayTitle": "Name this flag's country",
+      "quizDetails": [
+        {
+          "currentImage": require("./assets/images/world_flags/uk_flag.jpg"),
+          "imageAnswer": "United Kingdom",
+          "multipleChoices": ["Australia", "United Kingdom", "New Zealand", "United States"]
+        },
+        {
+          "currentImage": require("./assets/images/world_flags/china.jpg"),
+          "imageAnswer": "China",
+          "multipleChoices": ["Japan", "China", "South Korea", "Vietnam"]
+        },
+        {
+          "currentImage": require("./assets/images/world_flags/japan.jpg"),
+          "imageAnswer": "Japan",
+          "multipleChoices": ["Japan", "China", "South Korea", "Thailand"]
+        },
+        {
+          "currentImage": require("./assets/images/world_flags/south_africa.jpg"),
+          "imageAnswer": "South Africa",
+          "multipleChoices": ["Kenya", "South Africa", "Ghana", "Nigeria"]
+        },
+        {
+          "currentImage": require("./assets/images/world_flags/brazil.jpg"),
+          "imageAnswer": "Brazil",
+          "multipleChoices": ["Brazil", "Argentina", "Portugal", "Mexico"]
+        },
+        {
+          "currentImage": require("./assets/images/world_flags/france.jpg"),
+          "imageAnswer": "France",
+          "multipleChoices": ["Netherlands", "Italy", "France", "Luxembourg"]
+        },
+        {
+          "currentImage": require("./assets/images/world_flags/united_states.jpg"),
+          "imageAnswer": "United States",
+          "multipleChoices": ["United States", "Canada", "Australia", "United Kingdom"]
+        },
+        {
+          "currentImage": require("./assets/images/world_flags/india.jpg"),
+          "imageAnswer": "India",
+          "multipleChoices": ["India", "Pakistan", "Bangladesh", "Nepal"]
+        },
+        {
+          "currentImage": require("./assets/images/world_flags/nigeria.jpg"),
+          "imageAnswer": "Nigeria",
+          "multipleChoices": ["Ghana", "South Africa", "Nigeria", "Cameroon"]
+        },
+        {
+          "currentImage": require("./assets/images/world_flags/canada.jpg"),
+          "imageAnswer": "Canada",
+          "multipleChoices": ["Austria", "Switzerland", "Canada", "Denmark"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "gameplayTitle": "Name this logo's company",
+      "quizDetails": [
+        {
+          "currentImage": require("./assets/images/company_logos/apple.jpg"),
+          "imageAnswer": "Apple",
+          "multipleChoices": ["Microsoft", "Apple", "Intel", "Dell"]
+        },
+        {
+          "currentImage": require("./assets/images/company_logos/Starbucks.jpg"),
+          "imageAnswer": "Starbucks",
+          "multipleChoices": ["Nike", "Adidas", "Puma", "Starbucks"]
+        },
+        {
+          "currentImage": require("./assets/images/company_logos/mc_donald.jpg"),
+          "imageAnswer": "McDonald's",
+          "multipleChoices": ["McDonald's", "Burger King", "KFC", "Subway"]
+        },
+        {
+          "currentImage": require("./assets/images/company_logos/Shell.jpg"),
+          "imageAnswer": "Shell",
+          "multipleChoices": ["Google", "Facebook", "Amazon", "Shell"]
+        },
+        {
+          "currentImage": require("./assets/images/company_logos/pepsi.jpg"),
+          "imageAnswer": "Pepsi",
+          "multipleChoices": ["eBay", "Amazon", "Pepsi", "Walmart"]
+        },
+        {
+          "currentImage": require("./assets/images/company_logos/facebook.jpg"),
+          "imageAnswer": "Facebook",
+          "multipleChoices": ["Facebook", "Twitter", "Instagram", "LinkedIn"]
+        },
+        {
+          "currentImage": require("./assets/images/company_logos/toyota.jpg"),
+          "imageAnswer": "Toyota",
+          "multipleChoices": ["Honda", "Nissan", "Toyota", "Hyundai"]
+        },
+        {
+          "currentImage": require("./assets/images/company_logos/play_station.jpg"),
+          "imageAnswer": "Playstation",
+          "multipleChoices": ["BMW", "Playstation", "Mercedes-Benz", "Volkswagen"]
+        },
+        {
+          "currentImage": require("./assets/images/company_logos/mercedes.jpg"),
+          "imageAnswer": "Mercedes-Benz",
+          "multipleChoices": ["Lexus", "Mercedes-Benz", "Jaguar", "Porsche"]
+        },
+        {
+          "currentImage": require("./assets/images/company_logos/youtube.jpg"),
+          "imageAnswer": "YouTube",
+          "multipleChoices": ["Netflix", "YouTube", "TikTok", "Vimeo"]
+        }
+      ]
+    },
+    {
       "id": 3,
       "gameplayTitle": "Name this American president",
       "quizDetails": [
@@ -141,7 +147,7 @@ function IdentifyThis() {
         {
           "currentImage": require("./assets/images/us_presidents/barack_obama.jpg"),
           "imageAnswer": "Barack Obama",
-          "multipleChoices": ["Barack Obama", "Joe Biden", "Bill Clinton", "George W. Bush"]
+          "multipleChoices": ["Joe Biden", "Bill Clinton", "George W. Bush", "Barack Obama"]
         },
         {
           "currentImage": require("./assets/images/us_presidents/bill_clinton.jpg"),
@@ -156,12 +162,12 @@ function IdentifyThis() {
         {
           "currentImage": require("./assets/images/us_presidents/franklin_roosevelt.jpg"),
           "imageAnswer": "Franklin D. Roosevelt",
-          "multipleChoices": ["Franklin D. Roosevelt", "Theodore Roosevelt", "Harry S. Truman", "Woodrow Wilson"]
+          "multipleChoices": ["Theodore Roosevelt", "Harry S. Truman", "Franklin D. Roosevelt", "Woodrow Wilson"]
         },
         {
           "currentImage": require("./assets/images/us_presidents/george_washignton.jpg"),
           "imageAnswer": "George Washington",
-          "multipleChoices": ["George Washington", "John Adams", "Thomas Jefferson", "James Madison"]
+          "multipleChoices": ["John Adams", "Thomas Jefferson", "George Washington", "James Madison"]
         },
         {
           "currentImage": require("./assets/images/us_presidents/joe_biden.jpg"),
@@ -176,12 +182,69 @@ function IdentifyThis() {
         {
           "currentImage": require("./assets/images/us_presidents/ronald_reagan.jpg"),
           "imageAnswer": "Ronald Reagan",
-          "multipleChoices": ["Ronald Reagan", "George H. W. Bush", "Gerald Ford", "Richard Nixon"]
+          "multipleChoices": ["George H. W. Bush", "Ronald Reagan", "Gerald Ford", "Richard Nixon"]
         },
         {
           "currentImage": require("./assets/images/us_presidents/Thodore_roosevelt.jpg"),
           "imageAnswer": "Theodore Roosevelt",
-          "multipleChoices": ["Theodore Roosevelt", "Franklin D. Roosevelt", "William McKinley", "Woodrow Wilson"]
+          "multipleChoices": ["Franklin D. Roosevelt", "William McKinley", "Theodore Roosevelt", "Woodrow Wilson"]
+        }
+      ]
+    },
+      
+    {
+      "id": 4,
+      "gameplayTitle": "Name this celebrity",
+      "quizDetails": [
+        {
+          "currentImage": require("./assets/images/celebrities/dwane_johnson.jpg"),
+          "imageAnswer": "Dwayne Johnson",
+          "multipleChoices": ["Vin Diesel", "Terry Crews", "Dwayne Johnson", "Jason Momoa"]
+        },
+        {
+          "currentImage": require("./assets/images/celebrities/selena_gomez.jpg"),
+          "imageAnswer": "Selena Gomez",
+          "multipleChoices": ["Ariana Grande", "Taylor Swift", "Selena Gomez", "Katy Perry"]
+        },
+        {
+          "currentImage": require("./assets/images/celebrities/brad_pitt.jpg"),
+          "imageAnswer": "Brad Pitt",
+          "multipleChoices": ["Leonardo DiCaprio", "Brad Pitt", "Matt Damon", "Chris Evans"]
+        },
+        {
+          "currentImage": require("./assets/images/celebrities/doja_cat.jpg"),
+          "imageAnswer": "Doja Cat",
+          "multipleChoices": ["Rihanna", "Beyoncé", "Nicki Minaj", "Doja Cat"]
+        },
+        {
+          "currentImage": require("./assets/images/celebrities/downey_jr.jpg"),
+          "imageAnswer": "Robert Downey Jr.",
+          "multipleChoices": ["Robert Downey Jr.", "Tom Holland", "Chris Pratt", "Johnny Depp"]
+        },
+        {
+          "currentImage": require("./assets/images/celebrities/miley_cyrus.jpg"),
+          "imageAnswer": "Miley Cyrus",
+          "multipleChoices": ["Ariana Grande", "Miley Cyrus", "Dua Lipa", "Camila Cabello"]
+        },
+        {
+          "currentImage": require("./assets/images/celebrities/keanu_reeves.jpg"),
+          "imageAnswer": "Keanu Reeves",
+          "multipleChoices": ["Keanu Reeves", "John Krasinski", "Ryan Reynolds", "Hugh Jackman"]
+        },
+        {
+          "currentImage": require("./assets/images/celebrities/hathaway.jpg"),
+          "imageAnswer": "Anne Hathaway",
+          "multipleChoices": ["Emma Watson", "Emma Stone", "Natalie Portman", "Anne Hathaway"]
+        },
+        {
+          "currentImage": require("./assets/images/celebrities/denzel.jpg"),
+          "imageAnswer": "Denzel Washington",
+          "multipleChoices": ["Jamie Foxx", "Kevin Hart", "Idris Elba","Denzel Washington",]
+        },
+        {
+          "currentImage": require("./assets/images/celebrities/rihanna.jpg"),
+          "imageAnswer": "Rihanna",
+          "multipleChoices": ["Emma Stone", "Rihanna", "Queen Latifah", "Lisa Kudrow"]
         }
       ]
     }
@@ -193,7 +256,7 @@ function IdentifyThis() {
     //embed the above data in a state variable
     setQuizData(OverallData);
 
-  }, [OverallData])
+  }, [])
   
   const getDataFromSelectOptionPageAndLoadGamePlayPage = (dataFromSelectOptionPage)=>{
     //load the gameplay page
@@ -212,6 +275,12 @@ function IdentifyThis() {
 
 
   const getDataFromGamePlayPageAndLoadEndResultPage = (dataFromGamePlayPage) => {
+
+    //console.log("dataFromGamePlayPage")
+    //console.log(dataFromGamePlayPage)
+    setEndResultData(dataFromGamePlayPage)
+//add all the result above to a state and feed end Result comp
+
     //load the endResult page
     setOptionCardSelected(false)
     setGamePlayPageLoaded(false)
@@ -221,6 +290,8 @@ function IdentifyThis() {
 
   return (
     <>
+      <ToastContainer position="top-right" autoClose={10} />
+
       {optionCardselected && // entry point
         <SelectOptionsPage
         sendIdDataToIdentifyThisContainer={getDataFromSelectOptionPageAndLoadGamePlayPage} />
@@ -232,7 +303,7 @@ function IdentifyThis() {
       />
       }
       {gamePlayComplete &&
-        <EndResultPage />
+        <EndResultPage data={endResultData} />
       }
     </>
   );

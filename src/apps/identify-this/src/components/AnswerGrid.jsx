@@ -1,32 +1,38 @@
-//import {useState } from "react"
+import { useState } from "react";
+import { toast } from "react-toastify";
 
-export default function AnswerGrid({ sendAnswerStatus, sendEndGameData, quizDetails, currentAnswerSetIndex, sendCurrentAnswerIndexData}) {
-    const displayNextImageAndAnswerChoices = (selectedAnswer) => {     
-        //generate a sound as a button progresses
+export default function AnswerGrid({ sendAnswerStatus, sendEndGameData, quizDetails, currentAnswerSetIndex, sendCurrentAnswerIndexData }) {
+    const [missedAnswersData, setMissedAnswersData] = useState([]);
+    const displayNextImageAndAnswerChoices = (selectedAnswer) => {
         if (currentAnswerSetIndex < quizDetails.length) {
-            if (selectedAnswer === quizDetails[currentAnswerSetIndex].imageAnswer ) {
-                // send answer status to Score progress
-                sendAnswerStatus("correct")
-                alert("Correct Answer")
+            let correctAnswer = String(quizDetails[currentAnswerSetIndex].imageAnswer)
+            let correctAnswerImage = quizDetails[currentAnswerSetIndex].currentImage
+            let questionNumber = currentAnswerSetIndex + 1
+            let totalQuestions = quizDetails.length
+                
+            if (selectedAnswer === correctAnswer) {
+                sendAnswerStatus("correct");
+                toast.success("Correct Answer");
+              //  setUpdatedAnswerContainer(prev => [...prev, "Correct"]);
             } else {
-                sendAnswerStatus("wrong")
-                alert("Wrong Answer")                 
-                // use state to send correct
+                sendAnswerStatus("wrong");
+                toast.error("Wrong Answer");
+                setMissedAnswersData(prev => [...prev, {
+                    correctAnswerImage,
+                    questionNumber,
+                    correctAnswer
+                    
+                }]);
             }
-           
-            if (currentAnswerSetIndex !== quizDetails.length - 1) { // prevent increment 
-                currentAnswerSetIndex++;
-                sendCurrentAnswerIndexData(currentAnswerSetIndex); // send the state to parent to feed his siblings
 
+            if (currentAnswerSetIndex !== quizDetails.length - 1) {
+                sendCurrentAnswerIndexData(currentAnswerSetIndex + 1);
             } else {
-                //Load End Result page
-                sendEndGameData("ended"); // TODO - add the actual data later
+                //console.log(missedAnswersData); // You may need to move this to a `useEffect` for latest state
+                sendEndGameData({ totalQuestions, missedAnswersData });
             }
-
-            //also load the next picture
-            //reset the visited answered button visited background
-        } 
-    }
+        }
+    };
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 mt-8 w-full max-w-xl">
@@ -40,6 +46,5 @@ export default function AnswerGrid({ sendAnswerStatus, sendEndGameData, quizDeta
                 </button>
             ))}
         </div>
-    )
-
+    );
 }
