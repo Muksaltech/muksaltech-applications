@@ -3,7 +3,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineCancel } from "react-icons/md";
 import { useState } from "react";
 
-export default function AppCard({ title, description, tech, isAppReady }) {
+export default function AppCard({ title, description, tech, isAppReady, appPath }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     return <section className="flex flex-row w-full mx-auto my-4 p-2 sm:p-6 md:p-6 border-b border-gray-300 font-maseratti max-w-6xl">
@@ -20,9 +20,9 @@ export default function AppCard({ title, description, tech, isAppReady }) {
         </p>
      
     <div className="flex justify-end gap-4 sm:gap-6 text-[0.85rem]  text-gray-400">
-          <a href="/apps/identify-this/IdentifyThis" className={`whitespace-nowrap ${isAppReady ? "underline hover:text-white text-gray-400" : "text-gray-600 cursor-not-allowed pointer-events-none"}`}>preview</a>
-          <a href="/apps/identify-this/IdentifyThis" className={`whitespace-nowrap ${isAppReady ? "underline hover:text-white text-gray-400" : "text-gray-600 cursor-not-allowed pointer-events-none"}`}>launch</a>
-          <a href="/apps/identify-this/IdentifyThis" className={`whitespace-nowrap ${isAppReady ? "underline hover:text-white text-gray-400" : "text-gray-600 cursor-not-allowed pointer-events-none"}`}>download code</a>
+          <a href={appPath} className={`whitespace-nowrap ${isAppReady ? "underline hover:text-white text-gray-400" : "text-gray-600 cursor-not-allowed pointer-events-none"}`}>preview</a>
+          <a href={appPath} className={`whitespace-nowrap ${isAppReady ? "underline hover:text-white text-gray-400" : "text-gray-600 cursor-not-allowed pointer-events-none"}`}>launch</a>
+          <a href={appPath} className={`whitespace-nowrap ${isAppReady ? "underline hover:text-white text-gray-400" : "text-gray-600 cursor-not-allowed pointer-events-none"}`}>download code</a>
           <span className="whitespace-nowrap no-underline font-bold text-green-400">{isAppReady ? "MVP Ready" : <span className="text-orange-400">WIP</span>}</span>
     </div>
     </div>

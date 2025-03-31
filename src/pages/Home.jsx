@@ -13,6 +13,7 @@ export default function Home() {
           description={app.appDescription}
           tech={app.appTechStack}
           isAppReady={app.isAppReady}
+          appPath = {app.path}
         />
       ))}
   </div>

@@ -14,13 +14,13 @@ export default function EndResultPage({ data }) {
     return (
         <div className="min-h-screen bg-gray-900 text-white p-4 flex flex-col items-center">
             {/* Title */}
-            <h1 className="text-3xl font-bold mb-6">RESULT</h1>
+            <h1 className="text-3xl font-bold mb-6">Result</h1>
 
             {/* Summary Message */}
             <p className="text-lg mb-4">
                 {allCorrect
                     ? "🎉 Weldone! You got all the questions right!"
-                    : `❌ You got ${missedQuestions.length} out of ${totalPage} wrong.`}
+                    : `You got ${totalPage - missedQuestions.length} out of ${totalPage} right. Review the correct answer for your missed question(s) below`}
             </p>
 
             {/* Conditional Table */}
