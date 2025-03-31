@@ -70,7 +70,11 @@ const ThirdStep = (props) => {
 
     return (
         <Form className="input-form" onSubmit={handleSubmit}>
-             <motion.div>
+            <motion.div
+                //className="col-md-6 offset-md-3"
+                initial={{ x: '-100vw' }}
+                animate={{ x: 0 }}
+            >
             <div className="col-md-6 offset-md-3">
                 <Form.Group controlId="country" className="mb-3">
                     <Form.Label>Country</Form.Label>
@@ -81,7 +85,7 @@ const ThirdStep = (props) => {
                         onChange={(e) => setSelectedCountry(e.target.value)}
                     >
                         {countries.map(({ isoCode, name }) => (
-                            <option value={isoCode} key={isoCode}>
+                            <option value={isoCode} key={isoCode} style={{ color: 'black' }}>
                                 {name}
                             </option>
                         ))}
@@ -98,7 +102,7 @@ const ThirdStep = (props) => {
                     >
                         {states.length > 0 ? (
                             states.map(({ isoCode, name }) => (
-                                <option value={isoCode} key={isoCode}>
+                                <option value={isoCode} key={isoCode} style={{ color: 'black' }}>
                                     {name}
                                 </option>
                             ))
@@ -118,7 +122,7 @@ const ThirdStep = (props) => {
                     >
                         {cities.length > 0 ? (
                             cities.map(({ name }) => (
-                                <option value={name} key={name}>
+                                <option value={name} key={name} style={{ color: 'black' }}>
                                     {name}
                                 </option>
                             ))
@@ -128,7 +132,9 @@ const ThirdStep = (props) => {
                     </Form.Control>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" disabled={isLoading}>
+                    <Button variant="link" type="submit" disabled={isLoading}
+                        className='btn'
+                    >
                     {isLoading ? 'Submitting...' : 'Register'}
                 </Button>
                 </div>

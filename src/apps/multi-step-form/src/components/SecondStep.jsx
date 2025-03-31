@@ -66,7 +66,8 @@ const SecondStep = (props) => {
                     </Form.Control.Feedback>
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                    <Button variant="link" type="submit"
+                        className='btn'>
                     Next
                 </Button>
                 </div>

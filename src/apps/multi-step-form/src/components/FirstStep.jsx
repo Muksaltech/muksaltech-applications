@@ -68,10 +68,9 @@ const FirstStep = () => {
                         {errors.last_name?.message}
                     </Form.Control.Feedback>
                 </Form.Group>
-
-                <Button variant="primary" type="submit">
-                    Next
-                </Button>
+                    <Button variant="link" type="submit" className='btn'>
+                            Next
+                       </Button>
                 </div>
                 </motion.div>
         </Form>
