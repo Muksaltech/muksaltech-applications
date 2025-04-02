@@ -27,18 +27,23 @@ export default function AnswerGrid({ sendAnswerStatus, sendEndGameData, quizDeta
 
 //ToDO
             if (currentAnswerSetIndex === quizDetails.length - 1) {
-                if (selectedAnswer !== correctAnswer) {
-                    setMissedAnswersData(prev => [...prev, {
-                        correctAnswerImage,
-                        questionNumber,
-                        correctAnswer
-                    }]);
+                if (selectedAnswer != correctAnswer) {
+                    //prompt loading of the final page
+                    sendEndGameData({
+                        totalQuestions,
+                        missedAnswersData: [
+                            ...missedAnswersData,
+                            { correctAnswerImage, questionNumber, correctAnswer }
+                        ]
+                    });
+                } else {
+                    //prompt loading of the final page
+                    sendEndGameData({
+                        totalQuestions, missedAnswersData,  // last question being wrong
+                    });
+                    
                 }
-                //prompt loading of the final page
-                sendEndGameData({
-                    totalQuestions, missedAnswersData, correctAnswerImage, // last question being wrong
-                    questionNumber,
-                    correctAnswer });
+       
             }
         }
     };
