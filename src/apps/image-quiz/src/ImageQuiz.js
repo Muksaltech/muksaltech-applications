@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 
 import React, { useEffect, useState } from 'react';
-import './IdentifyThis.css';
+import './ImageQuiz.css';
 import SelectOptionsPage from './pages/SelectOptionsPage';
 import GamePlayPage from './pages/GamePlayPage';
 import EndResultPage from './pages/EndResultPage';
@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 
-function IdentifyThis() {
+function ImageQuiz() {
   const [optionCardselected, setOptionCardSelected] = useState(true);
   const [gamePlayPageLoaded, setGamePlayPageLoaded] = useState(false);
   const [gamePlayComplete, setGamePlayComplete] = useState(false);
@@ -346,4 +346,4 @@ function IdentifyThis() {
   );
 }
 
-export default IdentifyThis;
+export default ImageQuiz;

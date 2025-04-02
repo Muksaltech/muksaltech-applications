@@ -8,7 +8,7 @@ Mini Apps
 - Food At Its Finest 
 - Collaborative Novel
 - Snake Or Ladder
-- More to 
+- More...
 
 How to Run Locally
 git clone https://github.com/Muksaltech/muksaltech-applications.git

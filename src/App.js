@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import IdentifyThis from './apps/identify-this/src/IdentifyThis';
+import ImageQuiz from './apps/image-quiz/src/ImageQuiz';
 import MultiStepForm from './apps/multi-step-form/src/MultiStepForm';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/apps/identify-this/IdentifyThis" element={<IdentifyThis />} /> 
+        <Route path="/apps/image-quiz/ImageQuiz" element={<ImageQuiz />} /> 
         <Route path="/apps/multi-step-form/MultiStepForm/*" element={<MultiStepForm />} />
       </Routes>
     </Router>

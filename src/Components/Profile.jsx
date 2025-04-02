@@ -1,5 +1,3 @@
-//import mypic from '../apps/identify-this/src/assets/images/me/meself.jpg'
-
 export default function Profile() {
     return <>
         <article className="max-w-5xl mx-auto border border-gray-300 p-6 rounded-lg">

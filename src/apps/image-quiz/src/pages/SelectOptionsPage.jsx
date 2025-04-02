@@ -18,7 +18,7 @@ const OptionCards = [{
     {
     id:2,
     optionImg: OptionSampleLogo,
-        webpOptionImg: WebpSampleLogo,
+    webpOptionImg: WebpSampleLogo,
     categoryTxt: "Company Logos"
 },
     {

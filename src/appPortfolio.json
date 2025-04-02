@@ -2,7 +2,7 @@
   "appTitle": "Image Quiz",
   "appDescription": "A trivial app where you are rewarded for identifying images and logos",
   "appTechStack": "HTML5, TailwindCSS, React.js, MaterialUI,Nodejs,NPM, Webpack,Javascript (ES6-ES2024), Git, Github, Netlify",
-  "path": "/apps/identify-this/IdentifyThis",
+  "path": "/apps/image-quiz/ImageQuiz",
   "isAppReady": true
 },
 {
@@ -15,14 +15,14 @@
 {
   "appTitle": "Food at its Finest",
   "appDescription": "Food ordering application",
-  "appTechStack": "HTML5,Java,SpringBoot, React, Redux, ReduxToolKit, Javascript, SASS, Git, Github, Netlify",
-  "path": "/apps/identify-this/IdentifyThis",
+  "appTechStack": "Java,Spring, SpringBoot, Reactjs, Redux, ReduxToolKit, Javascript, SASS, Git, Github, AWS",
+  "path": "/apps/wip/wip", 
   "isAppReady": false
 },
 {
   "appTitle": "Collaborative Novel",
   "appDescription": "Are you creative?, read through existing WIP novels and take off from there. You own the show!",
-  "appTechStack": "Java, SpringBoot, Javascript, SASS, Git, Github, Netlify",
-  "path": "/apps/identify-this/IdentifyThis",
+  "appTechStack": "C#, Reactjs, MaterialUI, SQl, JWT Tokens, Azure, cloud ",
+  "path": "/apps/wip/wip",
   "isAppReady": false
 }]
