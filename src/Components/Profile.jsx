@@ -19,7 +19,7 @@ export default function Profile() {
 
                         Guided by my personal motto — “Constantly creating, constantly developing, constantly revamping, and constantly innovating” — I'm always working on something new. Below is a list of apps I'm currently developing.
 
-                        Each project has been built entirely from scratch, and you're welcome to explore the code.
+                        Each project has been built entirely from scratch, and you're welcome to explore the code. You can click on yhe burger icon to see the list of the features I demoed in each app.
 
                         My past clients include GE Oil and Gas, USAA bank, PayPal, AvNet, AT&T, APS, PGE and Ihop demonstrating my ability to work across different domains.
                         </p>
