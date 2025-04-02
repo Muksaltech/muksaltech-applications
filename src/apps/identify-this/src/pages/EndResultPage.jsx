@@ -10,6 +10,7 @@ export default function EndResultPage({ data }) {
     const missedQuestions = data.missedAnswersData || [{}]; // Just in case `data` is undefined
     const totalPage = data.totalQuestions;
     const allCorrect = missedQuestions.length === 0;
+    const extra = data.correctAnswer
 
     return (
         <div className="min-h-screen bg-gray-900 text-white p-4 flex flex-col items-center">
@@ -49,6 +50,23 @@ export default function EndResultPage({ data }) {
                                 </tr>
                             ))}
                         </tbody>
+                        {extra &&
+                            <tbody>
+                            
+                                    <tr key={extra-1} className="border-t border-gray-600">
+                                        <td className="py-2 px-4">{data.questionNumber}</td>
+                                        <td className="py-2 px-4">
+                                            <img
+                                                src={data.correctAnswerImage}
+                                                alt={`Question ${data.questionNumber}`}
+                                                className="w-32 h-auto rounded"
+                                            />
+                                        </td>
+                                        <td className="py-2 px-4">{data.correctAnswer}</td>
+                                    </tr>
+                                
+                            </tbody>
+                        }
                     </table>
                 </div>
             )}

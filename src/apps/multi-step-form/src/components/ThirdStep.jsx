@@ -52,21 +52,35 @@ const ThirdStep = (props) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // Example POST to backend
         try {
-            setIsLoading(true);
-            await axios.post(`${BASE_API_URL}/register`, {
-                country: selectedCountry,
-                state: selectedState,
-                city: selectedCity,
-            });
-            // maybe show a success message or move to next step
+          //  const { user } = props; - use prop vehicle to bring this
+
+            const selectedCountryName = countries.find(
+                (country) => country.isoCode === selectedCountry
+            )?.name ?? '';
+
+            const selectedStateName = states.find(
+                (state) => state.isoCode === selectedState
+            )?.name ?? '';
+
+            const updatedData = {
+                country: selectedCountryName,
+                state: selectedStateName,
+                city: selectedCity ?? '',
+            };
+
+            const payload = {
+                // the object data will be here
+                ...updatedData,
+            };
+
+            await axios.post(`${BASE_API_URL}/register`, payload);
+
         } catch (error) {
-            console.error('Error submitting form:', error);
-        } finally {
-            setIsLoading(false);
+            console.error('Submission error:', error.response?.data || error.message);
         }
     };
+
 
     return (
         <Form className="input-form" onSubmit={handleSubmit}>

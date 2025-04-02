@@ -6,9 +6,7 @@ import ThirdStep from './components/ThirdStep';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./MultiStepForm.scss"
-
 import { Routes, Route, Navigate } from 'react-router-dom';
-
 
 const MultiStepForm = () => (
   <div className="container">

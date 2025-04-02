@@ -24,6 +24,7 @@ const FirstStep = () => {
                 //className="col-md-6 offset-md-3"
                 initial={{ x: '-100vw' }}
                 animate={{ x: 0 }}
+               // transition={{ stiffness: 150 }}
             >
             <div className="col-md-6 offset-md-3">
 

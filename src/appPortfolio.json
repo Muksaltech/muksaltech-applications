@@ -1,14 +1,14 @@
 [{
   "appTitle": "Image Quiz",
   "appDescription": "A trivial app where you are rewarded for identifying images and logos",
-  "appTechStack": "HTML5, TailwindCSS, React.js, MaterialUI,Nodejs,NPM, Webpack,Javascript (ES6), Git, Github, Netlify",
+  "appTechStack": "HTML5, TailwindCSS, React.js, MaterialUI,Nodejs,NPM, Webpack,Javascript (ES6-ES2024), Git, Github, Netlify",
   "path": "/apps/identify-this/IdentifyThis",
   "isAppReady": true
 },
 {
   "appTitle": "Interactive Form",
   "appDescription": "Putting the fun in filling forms using MERN tech stack",
-  "appTechStack": "HTML5, MongoDB, React.js,Expressjs, Nodejs,Yarn,SCSS, Bootstrap,Webpack, Javascript (ES6), Git, Github, Netlify",
+  "appTechStack": "MongoDB, React.js,Expressjs, Nodejs,Yarn,SCSS, Bootstrap,Webpack, Javascript (ES6-ES2024), Git, Github, Netlify",
   "path": "/apps/multi-step-form/MultiStepForm",
   "isAppReady": true
 },

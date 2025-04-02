@@ -1,14 +1,17 @@
 //import OptionSampleFlag from '../assets/images/usa_flag.jpg'
 
-export default function ImagePanel({loadedImage}) {
+export default function ImagePanel({ loadedFallBackImage , loadedImage}) {
     return (
-        <div>
-        <img
-            src={loadedImage}
-                alt=""
-              // className="w-full h-full object-cover"
-                className="w-[15rem] h-[15rem] sm:w-[20rem] sm:h-[20rem] md:w-[30rem] md:h-[22rem] object-cover rounded-lg shadow-lg"
-        />
+        <div className="overflow-hidden">
+            <picture >
+                <source srcSet={loadedImage} type="image/webp" />
+                <img
+                    src={loadedFallBackImage}
+                    alt=""
+                    loading="lazy"
+                    className="w-[15rem] h-[15rem] sm:w-[20rem] sm:h-[20rem] md:w-[30rem] md:h-[20rem] object-contain rounded-lg shadow-lg"
+                />
+            </picture>
         </div>
     )
 }

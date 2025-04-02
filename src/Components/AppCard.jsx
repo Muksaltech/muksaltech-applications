@@ -1,4 +1,4 @@
-import { MdArrowForwardIos } from "react-icons/md";
+//import { MdArrowForwardIos } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineCancel } from "react-icons/md";
 import { useState } from "react";
@@ -11,8 +11,8 @@ export default function AppCard({ title, description, tech, isAppReady, appPath 
         <div onClick={() => setIsDrawerOpen(true)} className="text-[0.75rem] text-gray-300 cursor-pointer"><GiHamburgerMenu /></div>
       </div>
       <div className="w-full">
-    <h2 className="text-2xl font-bold text-gray-300">{title}</h2>
-    <p className="text-1xl font-semibold text-gray-100">
+    <h2 className="text-2xl font-bold text-gray-300 mb-1">{title}</h2>
+    <p className="text-1xl font-semibold text-gray-100 mb-1">
       {description}
     </p> 
     <p className="text-[0.85rem] mb-4 text-gray-400">

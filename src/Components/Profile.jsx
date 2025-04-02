@@ -1,4 +1,4 @@
-import mypic from '../apps/identify-this/src/assets/images/me/meself.jpg'
+//import mypic from '../apps/identify-this/src/assets/images/me/meself.jpg'
 
 export default function Profile() {
     return <>
