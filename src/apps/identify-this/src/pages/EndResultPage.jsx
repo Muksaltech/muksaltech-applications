@@ -11,7 +11,7 @@ export default function EndResultPage({ data }) {
             <h1 className="text-3xl font-bold mb-6">Result</h1>
 
             {/* Summary Message */}
-            <p className="text-lg mb-4">
+            <p className="text-lg mb-4 flex text-center">
                 {
                     allCorrect ? (
                         "🎉 Well done! You got all the questions right!"
