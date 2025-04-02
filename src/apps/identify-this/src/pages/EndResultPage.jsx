@@ -1,6 +1,5 @@
 
 export default function EndResultPage({ data }) {
-    //console.log(data)
     const missedQuestions = data.missedAnswersData || [{}]; // Just in case `data` is undefined
     const totalPage = data.totalQuestions;
     const allCorrect = missedQuestions.length === 0;

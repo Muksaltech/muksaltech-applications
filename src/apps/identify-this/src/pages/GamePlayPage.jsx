@@ -18,8 +18,7 @@ export default function GamePlayPage({ filteredQuizData, sendEndGameData }) {
     let exnGame = [{}]
     const getEndGameData = (endGameData) => {
         // setEndGamedata(endGameData)
-        exnGame = endGameData
-        console.log(exnGame)
+        exnGame = endGameData;
     }
 
     const getCurrentAnswerIndexData = (currentAnswerIndexData) => {

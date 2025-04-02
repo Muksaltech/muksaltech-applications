@@ -16,7 +16,6 @@ export default function ScoreProgress({ responseStatus, currentScoreIndex, numbe
                 return updated;
             });
         }
-       // console.log(statusHistory)
     }, [responseStatus, currentScoreIndex]);
 
     return (

@@ -13,9 +13,7 @@ const SecondStep = (props) => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
         navigate("/apps/multi-step-form/MultiStepForm/ThirdStep")
-     
     };
 
     return (

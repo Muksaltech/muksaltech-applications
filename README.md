@@ -1,14 +1,14 @@
 
 # My Portfolio Site
-This is my personal portfolio built with React, showcasing my projects and mini applications.
-Tech Stack
-- React
-- React Router
-- Netlify (Deployment)
+This is my personal portfolio built with React, showcasing my projects and mini applications using different techstacks
 
 Mini Apps
-- App 1 – 
-- App 2 – 
+- Image Quiz 
+- Multi level form
+- Food At Its Finest 
+- Collaborative Novel
+- Snake Or Ladder
+- More to 
 
 How to Run Locally
 git clone https://github.com/Muksaltech/muksaltech-applications.git

@@ -315,9 +315,6 @@ function IdentifyThis() {
 
 
   const getDataFromGamePlayPageAndLoadEndResultPage = (dataFromGamePlayPage) => {
-
-    //console.log("dataFromGamePlayPage")
-    //console.log(dataFromGamePlayPage)
     setEndResultData(dataFromGamePlayPage)
 //add all the result above to a state and feed end Result comp
 
