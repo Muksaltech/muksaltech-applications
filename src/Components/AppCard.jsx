@@ -21,7 +21,17 @@ export default function AppCard({ title, description, tech, isAppReady, appPath 
      
     <div className="flex justify-end gap-4 sm:gap-6 text-[0.85rem]  text-gray-400">
           <a href={appPath} className={`whitespace-nowrap ${isAppReady ? "underline hover:text-white text-gray-400" : "text-gray-600 cursor-not-allowed pointer-events-none"}`}>launch</a>
-          <a href={appPath} className={`whitespace-nowrap ${isAppReady ? "underline hover:text-white text-gray-400" : "text-gray-600 cursor-not-allowed pointer-events-none"}`}>obtain code</a>
+          <a
+            href="https://github.com/Muksaltech/muksaltech-applications"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`whitespace-nowrap ${isAppReady
+                ? "underline hover:text-white text-gray-400"
+                : "text-gray-600 cursor-not-allowed pointer-events-none"
+              }`}
+          >
+            obtain code
+          </a>
           <span className="whitespace-nowrap no-underline font-bold text-green-400">{isAppReady ? "MVP Ready" : <span className="text-orange-400">WIP</span>}</span>
     </div>
     </div>
