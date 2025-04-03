@@ -1,22 +1,32 @@
-import React from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FormContext } from '../context/FormContext';
 
 const FirstStep = () => {
+    const { formData, setFormData } = useContext(FormContext);
+
     const navigate = useNavigate();
     const {
         register,
-        handleSubmit,
+        handleSubmit, 
         formState: { errors }
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log('Form submitted:', data);
+        setFormData(prev => ({
+            ...prev,
+            ...data
+        }));
+       // console.log('Form submitted:', data, formData);
         navigate("/apps/multi-step-form/MultiStepForm/SecondStep")
     };
+    useEffect(() => {
+        console.log('Updated formData:', formData);
+    }, [formData]);
 
     return (
         <Form className="input-form" onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -34,7 +44,8 @@ const FirstStep = () => {
                     <Form.Control
                         type="text"
                         placeholder="Enter your first name"
-                        autoComplete="off"
+                            autoComplete="off"
+                            defaultValue={formData.first_name} // set initial value
                         isInvalid={!!errors.first_name}
                         {...register('first_name', {
                             required: 'First name is required.',
@@ -56,7 +67,8 @@ const FirstStep = () => {
                         type="text"
                         placeholder="Enter your last name"
                         autoComplete="off"
-                        isInvalid={!!errors.last_name}
+                            isInvalid={!!errors.last_name}
+                            defaultValue={formData.last_name} // set initial value
                         {...register('last_name', {
                             required: 'Last name is required.',
                             pattern: {

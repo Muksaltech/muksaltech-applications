@@ -5,13 +5,15 @@ import MultiStepForm from './apps/multi-step-form/src/MultiStepForm';
 
 function App() {
   return (
+
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/apps/image-quiz/ImageQuiz" element={<ImageQuiz />} /> 
         <Route path="/apps/multi-step-form/MultiStepForm/*" element={<MultiStepForm />} />
       </Routes>
-    </Router>
+      </Router>
+    
   );
 }
 export default App;

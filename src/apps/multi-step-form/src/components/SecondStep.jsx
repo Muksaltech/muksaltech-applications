@@ -1,10 +1,12 @@
-import React from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FormContext } from '../context/FormContext';
 
 const SecondStep = (props) => {
+    const { formData, setFormData } = useContext(FormContext);
     const navigate = useNavigate();
     const {
         register,
@@ -13,8 +15,17 @@ const SecondStep = (props) => {
     } = useForm();
 
     const onSubmit = (data) => {
+        setFormData(prev => ({
+            ...prev,
+            ...data
+        }));
         navigate("/apps/multi-step-form/MultiStepForm/ThirdStep")
     };
+
+
+        useEffect(() => {
+            console.log('Updated formData:', formData);
+        }, [formData]);
 
     return (
         <Form className="input-form" onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -29,7 +40,8 @@ const SecondStep = (props) => {
                     <Form.Control
                         type="email"
                         placeholder="Enter your email address"
-                        autoComplete="off"
+                            autoComplete="off"
+                            defaultValue={formData.user_email} // set initial value
                         isInvalid={!!errors.user_email}
                         {...register('user_email', {
                             required: 'Email is required.',
@@ -49,7 +61,8 @@ const SecondStep = (props) => {
                     <Form.Control
                         type="password"
                         placeholder="Choose a password"
-                        autoComplete="off"
+                            autoComplete="off"
+                            defaultValue={formData.user_password} // set initial value
                         isInvalid={!!errors.user_password}
                         {...register('user_password', {
                             required: 'Password is required.',

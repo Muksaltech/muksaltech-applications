@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Country, State, City } from 'country-state-city';
 import axios from 'axios';
 import { BASE_API_URL } from '../utils/constants';
 import { motion } from 'framer-motion';
+import { FormContext } from '../context/FormContext';
 
 const ThirdStep = (props) => {
     const [countries, setCountries] = useState([]);
@@ -14,6 +15,8 @@ const ThirdStep = (props) => {
     const [selectedCountry, setSelectedCountry] = useState('');
     const [selectedState, setSelectedState] = useState('');
     const [selectedCity, setSelectedCity] = useState('');
+
+     const { formData, setFormData } = useContext(FormContext);
 
     useEffect(() => {
         const result = Country.getAllCountries();
@@ -52,6 +55,7 @@ const ThirdStep = (props) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setIsLoading(true)
         try {
           //  const { user } = props; - use prop vehicle to bring this
 
@@ -71,17 +75,22 @@ const ThirdStep = (props) => {
 
             const payload = {
                 // the object data will be here
+                ...formData,
                 ...updatedData,
             };
-
+      
+            console.log("payload", payload)
             await axios.post(`${BASE_API_URL}/register`, payload);
 
         } catch (error) {
             console.error('Submission error:', error.response?.data || error.message);
+            setIsLoading(false)
         }
     };
 
-
+    useEffect(() => {
+        console.log('Updated formData:', formData);
+    }, [formData]);
     return (
         <Form className="input-form" onSubmit={handleSubmit}>
             <motion.div
