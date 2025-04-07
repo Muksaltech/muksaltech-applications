@@ -15,7 +15,7 @@
 {
   "appTitle": "Food at its Finest",
   "appDescription": "Food ordering application",
-  "appTechStack": "Java,Spring, SpringBoot, Reactjs, Redux, ReduxToolKit, Javascript, SASS, Git, Github, AWS",
+  "appTechStack": "Java,Spring, SpringBoot, Reactjs, TypeScript,Redux, ReduxToolKit, Javascript(ES6+), Tailwind, Git, Github, AWS",
   "path": "/apps/wip/wip", 
   "isAppReady": false
 },
