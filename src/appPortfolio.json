@@ -15,14 +15,14 @@
 {
   "appTitle": "Food at its Finest",
   "appDescription": "Food ordering application",
-  "appTechStack": "Java, Spring, SpringBoot, Reactjs, TypeScript, Redux, ReduxToolKit, Javascript(ES6+), Tailwind, Git, Github, AWS Cloud",
-  "path": "/apps/wip/wip", 
+  "appTechStack": "Java, Spring, SpringBoot, Reactjs, TypeScript, Redux, ReduxToolKit, Javascript(ES6+), Tailwind, Git, Github, Azure Cloud",
+  "path": "/apps/food-order/FoodOrder", 
   "isAppReady": false
 },
 {
   "appTitle": "Collaborative Novel",
   "appDescription": "Are you creative?, read through existing WIP novels and take off from there. You own the show!",
-  "appTechStack": "C#,.Net libraries, SQL, Reactjs, MaterialUI, JWT Tokens, Azure cloud",
+  "appTechStack": "C#,.Net libraries, SQL, Reactjs, MaterialUI, JWT Tokens, AWS cloud",
   "path": "/apps/wip/wip",
   "isAppReady": false
 }]
