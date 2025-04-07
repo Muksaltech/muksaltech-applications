@@ -19,13 +19,13 @@ export default function Profile() {
                     {/* Main content */}
                 <main className="w-full rounded-lg shadow text-justify">
                         <p className="text-gray-300 leading-relaxed">
-                        Hello! I'm Mukaila — a passionate developer with over 20 years experience in building web and mobile applications, as well as engaging in  challenging open source projects. I have a strong appreciation for clean design and intuitive user experiences.
+                        Hello, I'm Mukaila — a dedicated and innovative developer with over 20 years of experience in crafting web and mobile applications, as well as contributing to complex open-source projects. I have a deep passion for clean design and creating seamless, intuitive user experiences.
 
-                        Guided by my personal motto — “Constantly creating, constantly developing, constantly revamping, and constantly innovating” — I'm always working on something new. Below is a list of apps I'm currently developing.
+                        Driven by my personal motto — "Constantly creating, constantly developing, constantly revamping, and constantly innovating" — I'm always exploring new ideas and building fresh solutions. Below, you'll find a selection of applications I'm actively developing.
 
-                        Each project has been built entirely from scratch, and you're welcome to explore the code. You can click on the burger icon to see the list of the features I demoed in each app.
+                        Each project has been developed entirely from the ground up. Feel free to explore the source code, and click the burger icon in any app to view the list of demoed features.
 
-                        My past clients include GE Oil and Gas, USAA bank, PayPal, AvNet, AT&T, APS, PGE and Ihop demonstrating my ability to work across different domains.
+                        Throughout my career, I've had the privilege of working with industry-leading clients such as GE Oil & Gas, USAA Bank, PayPal, Avnet, AT&T, APS, PGE, and IHOP — showcasing my versatility across various industries and tech stacks.
                         </p>
                     </main>
 
