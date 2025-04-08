@@ -81,11 +81,15 @@ const ThirdStep = (props) => {
       
             console.log("payload", payload)
             await axios.post(`${BASE_API_URL}/register`, payload);
-
+            alert("Data Saved successfully")
+           
         } catch (error) {
             console.error('Submission error:', error.response?.data || error.message);
+          
+        } finally {
             setIsLoading(false)
         }
+      
     };
 
     useEffect(() => {
