@@ -1,12 +1,14 @@
-const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/form-user', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-    .then(() => {
-        console.log('✅ MongoDB connected successfully');
-    })
-    .catch((error) => {
-        console.error('❌ MongoDB connection error:', error);
-    });
+
+const mongoose = require('mongoose');
+const uri = 'mongodb://cmovieconf:6PPIHgN9D9OldZnw@cluster0-shard-00-00.abcde.mongodb.net:27017,...'; // non-srv URI
+
+
+mongoose.connect(
+    uri,
+    { useNewUrlParser: true, useUnifiedTopology: true }
+).then(() => {
+    console.log('MongoDB connected!');
+}).catch(err => {
+    console.error('Connection error', err);
+});
