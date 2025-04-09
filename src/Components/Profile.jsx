@@ -2,7 +2,7 @@ import me from '../assets/images/me.webp'
 
 export default function Profile() {
     return <>
-        <article className="max-w-5xl mx-auto p-6 rounded-lg">
+        <article className="max-w-5xl mx-auto p-6 border border-gray-300 rounded-lg">
                 <header className="text-center mb-6">
                 <h1 className="text-3xl font-bold text-gray-300">About Me</h1>
                 </header>
