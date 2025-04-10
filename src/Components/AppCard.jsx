@@ -32,7 +32,7 @@ export default function AppCard({ title, description, tech, isAppReady, appPath 
           >
             obtain code
           </a>
-          <span className="whitespace-nowrap no-underline font-bold text-green-400">{isAppReady ? "MVP Ready" : <span className="text-orange-400">WIP</span>}</span>
+          <span className="whitespace-nowrap no-underline font-bold text-green-400">{isAppReady ? "MVP Ready" : <span className="text-orange-400">Not Stated</span>}</span>
     </div>
     </div>
  

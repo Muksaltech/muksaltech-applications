@@ -13,7 +13,7 @@
   "isAppReady": true
 },
 {
-  "appTitle": "Food at its Finest",
+  "appTitle": "Food at its Finest (Work In Progress)",
   "appDescription": "Food ordering application",
   "appTechStack": "Java, Spring, SpringBoot, SQL, Reactjs, TypeScript, Redux, ReduxToolKit, Javascript(ES6+), Tailwind, Git, Github, Azure Cloud, Netlify",
   "path": "/apps/food-order/FoodOrder", 

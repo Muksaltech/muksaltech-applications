@@ -1,9 +1,9 @@
 
-function BurgerList({ burgerData }) {
-    const BurgerImageCloudUrl = `https://raw.githubusercontent.com/Muksaltech/food-order-image-storage/refs/heads/muksal-main/${burgerData.imageUrlIndicator}.webp`
+function BurgerList({ burgerData, sendSelectedBurgerId }) {
+    const BurgerImageCloudUrl = `https://raw.githubusercontent.com/Muksaltech/food-order-image-storage/refs/heads/muksal-main/${burgerData.imageUrlIndicator}.webp` // comking from Github
     return (
         <>
-            <div className="text-center cursor-pointer shadow">
+            <div onClick={() => { sendSelectedBurgerId(burgerData.burgerId) }} className="text-center cursor-pointer shadow">
                 <img src={BurgerImageCloudUrl} alt={burgerData.name} className="w-full h-auto mx-auto" />
             </div>
         </>
