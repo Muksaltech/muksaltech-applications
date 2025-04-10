@@ -79,7 +79,7 @@ const ThirdStep = (props) => {
                 ...updatedData,
             };
       
-            console.log("payload", payload)
+           // console.log("payload", payload)
             await axios.post(`${BASE_API_URL}/register`, payload);
             alert("Data Saved successfully")
            
@@ -93,7 +93,7 @@ const ThirdStep = (props) => {
     };
 
     useEffect(() => {
-        console.log('Updated formData:', formData);
+       // console.log('Updated formData:', formData);
     }, [formData]);
     return (
         <Form className="input-form" onSubmit={handleSubmit}>

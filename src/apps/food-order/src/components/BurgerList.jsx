@@ -1,6 +1,5 @@
 
 function BurgerList({ burgerData }) {
-    console.log(burgerData.imageUrlIndicator)
     const BurgerImageCloudUrl = `https://raw.githubusercontent.com/Muksaltech/food-order-image-storage/refs/heads/muksal-main/${burgerData.imageUrlIndicator}.webp`
     return (
         <>
