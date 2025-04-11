@@ -4,7 +4,7 @@ import BurgerImagePanel from "./BurgerImagePanel";
 import BurgerPricePane from "./BurgerPricePane";
 import BurgerSidesCard from "./BurgerSidesCard";
 import BurgerSidesGroup from "./BurgerSidesGroup";
-import SidesDataJson from './SidesData.json';
+import SidesDataJson from '../../SidesData.json';
 import BurgerSelections from './BurgerSelections';
 
 export default function BurgerOrderPage({ burgerSidesData, goBack }) {

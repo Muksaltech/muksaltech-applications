@@ -1,0 +1,62 @@
+[
+    {
+        "burgerId": 1,
+        "name": "FireBite",
+        "imageUrlIndicator": "firebite",
+        "description": "Spicy beef patty with jalapeños, pepper jack cheese, and chipotle mayo"
+    },
+    {
+        "burgerId": 2,
+        "name": "CheezyBeast",
+        "imageUrlIndicator": "cheesy_beast",
+        "description": "Triple-layered cheddar explosion with crispy onion rings"
+    },
+    {
+        "burgerId": 3,
+        "name": "VeggieBloom",
+        "imageUrlIndicator": "veggie_bloom",
+        "description": "Grilled plant-based patty with avocado and vegan aioli"
+    },
+    {
+        "burgerId": 4,
+        "name": "SmokyMount",
+        "imageUrlIndicator": "smoky_mount",
+        "description": "Smoked BBQ burger with grilled mushrooms and smoked gouda"
+    },
+    {
+        "burgerId": 5,
+        "name": "OceanCrunch",
+        "imageUrlIndicator": "ocean_crunch",
+        "description": "Crispy fish filet with tangy tartar sauce and coleslaw"
+    },
+    {
+        "burgerId": 6,
+        "name": "SweetHeat",
+        "imageUrlIndicator": "sweet_heat",
+        "description": "Honey glazed bacon with hot sauce and smoked cheddar"
+    },
+    {
+        "burgerId": 7,
+        "name": "MeltDown",
+        "imageUrlIndicator": "melt_down",
+        "description": "Juicy beef patty with caramelized onions and Swiss cheese"
+    },
+    {
+        "burgerId": 8,
+        "name": "DoubleRancher",
+        "imageUrlIndicator": "double_ranch",
+        "description": "Double beef with ranch dressing and crispy bacon"
+    },
+    {
+        "burgerId": 9,
+        "name": "SunriseStack",
+        "imageUrlIndicator": "sunrise_stack",
+        "description": "Morning burger with egg, hash brown, and cheese"
+    },
+    {
+        "burgerId": 10,
+        "name": "CrunchWrap",
+        "imageUrlIndicator": "crunch_wrap",
+        "description": "Burger wrapped in a crispy tortilla with salsa and sour cream"
+    }
+]

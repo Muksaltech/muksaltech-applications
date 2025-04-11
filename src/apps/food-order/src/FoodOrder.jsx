@@ -3,34 +3,40 @@ import BurgerList from './components/BurgerList';
 import Spinner from '../../../Components/Spinner';
 import BurgerOrderPage from './components/BurgerOrderPage'; // import your new page
 import './FoodOrder.css';
+import BurgerData from '../public/BurgerData.json'
 
 function FoodOrder() {
-  const getBurgersDataFromAzureCloud =
-    'https://muksalfoodorder-g7htfpcpdvccdaec.canadacentral-01.azurewebsites.net/api/burgers';
+  //const getBurgersDataFromAzureCloud =
+    //'https://muksalfoodorder-g7htfpcpdvccdaec.canadacentral-01.azurewebsites.net/api/burgers';
 
   const [burgersData, setBurgersData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isBurgerSelected, SetIsBurgerSelected] = useState(false); // store full burger object
   const [burgerSidesData, SetBurgerSidesData] = useState([{}]); // store full burger sides data
 
 
   useEffect(() => {
-    const fetchBurgers = async () => {
-      try {
-        const response = await fetch(getBurgersDataFromAzureCloud);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
+  //  const fetchBurgers = async () => {
+      //try {
+       // const response = await fetch(getBurgersDataFromAzureCloud);
+       // if (!response.ok) {
+        //  throw new Error('Network response was not ok');
+       // }
+        const data = BurgerData
+          //await response.json();
+        // console.log(data);
         setBurgersData(data);
-      } catch (error) {
-        console.error('Error fetching burgers:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
 
-    fetchBurgers();
+        //console.log(data);
+
+    ////  } catch (error) {
+       // console.error('Error fetching burgers:', error);
+     // } finally {
+       // setLoading(false);
+     // }
+   // };
+
+    //fetchBurgers();
   }, []);
 
   const getSelectedBurgerId = (burgerDataId) => { 
