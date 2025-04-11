@@ -9,15 +9,19 @@ import BurgerSelections from './BurgerSelections';
 
 export default function BurgerOrderPage({ burgerSidesData, goBack }) {
    
-    const [filteredData, setFilteredData] = useState(SidesDataJson)
+    const [unFilteredData, setUnfilteredData] = useState(SidesDataJson)
     const [selectedSideCard, setSelectedSideCard] = useState(null)
 
+    const [selectedSideCardName, setSelectedSideCardName] = useState(null)
+
+    const [filteredData, setFilteredData] = useState(SidesDataJson)
         useEffect(() => { 
            // alert(selectedSideCard)
             //use the return card to filter out the object that 
             //rerender the rest of the remaining burgerSide Data
             setFilteredData(filteredData.filter(item => !item.sides.includes(selectedSideCard)))
-            //console.log(filteredData);
+
+            setSelectedSideCardName(selectedSideCard)
         }, [selectedSideCard])
     return (
         <div className="min-h-screen p-6 md:p-12">
@@ -26,7 +30,7 @@ export default function BurgerOrderPage({ burgerSidesData, goBack }) {
                 {/* <BurgerImagePanel */}
                  <BurgerImagePanel />
                 <div className="flex-1">
-                    <BurgerSelections />
+                    <BurgerSelections selectedItem={selectedSideCardName} />
                     {/* <BurgerSideHeading */}
                     {filteredData.map((side, i) => (
                         <BurgerSidesGroup key={i} sidesData={side} sendSelectedCard={setSelectedSideCard} />
@@ -38,7 +42,6 @@ export default function BurgerOrderPage({ burgerSidesData, goBack }) {
 
             {/* Footer: Add to Bag */}
             <BurgerPricePane />
-          
         </div>
     );
 }
