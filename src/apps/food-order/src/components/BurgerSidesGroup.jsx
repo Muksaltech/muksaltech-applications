@@ -8,18 +8,12 @@ function BurgerSidesGroup({ sidesData, sendSelectedCard }) {
     const sideCardsHeading = sidesData.sidesTitle
     const sidesCardData = sidesData.sides
 
- 
-
     useEffect(() => { 
         //alert(selectedSideCard)
         //use the return card to filter out the object that 
         //rerender the rest of the remaining burgerSide Data
-        
-        
+    
         sendSelectedCard(selectedSideCard);
-        
-        
-        
     }, [selectedSideCard])
 
     //rather than use a parent method to collect data deliverey,

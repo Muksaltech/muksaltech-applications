@@ -5,6 +5,7 @@ import BurgerPricePane from "./BurgerPricePane";
 import BurgerSidesCard from "./BurgerSidesCard";
 import BurgerSidesGroup from "./BurgerSidesGroup";
 import SidesDataJson from './SidesData.json';
+import BurgerSelections from './BurgerSelections';
 
 export default function BurgerOrderPage({ burgerSidesData, goBack }) {
    
@@ -25,6 +26,7 @@ export default function BurgerOrderPage({ burgerSidesData, goBack }) {
                 {/* <BurgerImagePanel */}
                  <BurgerImagePanel />
                 <div className="flex-1">
+                    <BurgerSelections />
                     {/* <BurgerSideHeading */}
                     {filteredData.map((side, i) => (
                         <BurgerSidesGroup key={i} sidesData={side} sendSelectedCard={setSelectedSideCard} />
