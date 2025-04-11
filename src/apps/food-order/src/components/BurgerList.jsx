@@ -1,6 +1,9 @@
 
+
+//require("./assets/images/world_flags/uk_flag.webp")
+
 function BurgerList({ burgerData, sendSelectedBurgerId }) {
-    const BurgerImageCloudUrl = `https://raw.githubusercontent.com/Muksaltech/food-order-image-storage/refs/heads/muksal-main/${burgerData.imageUrlIndicator}.webp` // comking from Github
+    const BurgerImageCloudUrl = require(`../assets/${ burgerData.imageUrlIndicator }.webp`);
     return (
         <>
             <div onClick={() => { sendSelectedBurgerId(burgerData.burgerId) }} className="text-center cursor-pointer shadow">
