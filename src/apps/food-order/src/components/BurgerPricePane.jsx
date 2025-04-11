@@ -1,7 +1,6 @@
 
 function BurgerPricePane() {
     return (
-        
             <div className="mt-10 border-t pt-6 flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                     <button className="bg-gray-100 px-3 py-1 rounded">−</button>
@@ -12,7 +11,6 @@ function BurgerPricePane() {
                     $12.29 | Add to Bag
                 </button>
             </div>
-    
     );
 }
 

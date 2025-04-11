@@ -1,0 +1,42 @@
+[{
+ "sidesTitle": "Choose Your Sauce",
+ "sides": [
+    "Smoky Chipotle",
+    "Garlic Aioli",
+    "Honey Mustard",
+    "Spicy Mango",
+    "Creamy Jalapeño",
+    "Maple BBQ",
+    "Zesty Ranch",
+    "Buffalo Blaze",
+    "Sweet Chili Twist"
+]
+
+},
+{
+    "sidesTitle": "Choose Your Drink",
+    "sides": [
+        "FireFizz Cola",
+        "Mango Blast Soda",
+        "Arctic Lime Spark",
+        "ChocoChill Shake",
+        "Blueberry Breeze",
+        "Pineapple Storm",
+        "Caramel Thunder",
+        "Vanilla Frostbite",
+        "Citrus Inferno"
+    ]
+},
+{
+    "sidesTitle": "Choose Your Fries",
+    "sides": 
+   [
+    "Classic Shoestring",
+    "Garlic Parmesan",
+     "Sweet Potato Curly",
+     "Cajun Waffle",
+     "Crinkle Cut",
+     "Spicy Steakhouse"
+   ]
+}
+]
