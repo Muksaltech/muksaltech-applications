@@ -7,7 +7,7 @@ import BurgerSidesGroup from "./BurgerSidesGroup";
 import SidesDataJson from '../../SidesData.json';
 import BurgerSelections from './BurgerSelections';
 
-export default function BurgerOrderPage({ burgerSidesData, goBack }) {
+export default function BurgerOrderPage({ burgerSidesData, backToBurgerListPage, burgerName, burgerDescription }) {
     const [unFilteredData, setUnfilteredData] = useState(SidesDataJson)
     const [selectedSideCard, setSelectedSideCard] = useState(null)
     const [selectedSideCardName, setSelectedSideCardName] = useState(null)
@@ -18,7 +18,20 @@ export default function BurgerOrderPage({ burgerSidesData, goBack }) {
             //alert(selectedSideCard)
             //use the return card name to filter out the object that the card belongs to 
             //rerender the rest of the remaining burgerSide Data
-    }, [selectedSideCard])
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+ 
+    }, [])
+
+    const scrollToTopPage = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }
     
     //this method gets the name of the selected data card and uses it
     //to filter the json object - when 1 is filtered out of 3 burgergroups
@@ -29,7 +42,11 @@ export default function BurgerOrderPage({ burgerSidesData, goBack }) {
 
         //increases selections
         setSelectedSideCardName({"selected": selectedDataCardforAddition, "add": "add"} ) // name of a side card asigned to setSelectedSideCardName with "add" keyword so that it stacks on selections array is <Selections
+   
+        scrollToTopPage();
+   
     }
+
 
     //decreases selection and increases burger group panel
     const getSideNameToremoveSelectedItem = (selectedDataCardForRemoval) => {
@@ -38,22 +55,21 @@ export default function BurgerOrderPage({ burgerSidesData, goBack }) {
         //filter only one object
         const burgerGroupToStack = SidesDataJson.filter(item => item.sides.includes(selectedDataCardForRemoval))
         console.log(burgerGroupToStack);
-
-
         //decreases selections
         setSelectedSideCardName({ "selected": selectedDataCardForRemoval, "remove": "remove" }) // name of a side card asigned to setSelectedSideCardName with "add" keyword so that it stacks on selections array is <Selections
         
         //increase burgergroup
         setFilteredData(prev => [...prev, ...burgerGroupToStack])
-
-
+        scrollToTopPage();
     }
 
     return (
-        <div className="min-h-screen p-6 md:p-12">
-            <div className="flex flex-col md:flex-row gap-10">    
+        <div className="min-h-screen p-4 md:p-10">
+            <p className='m-0 cursor-pointer hover:text-white' onClick={() => { backToBurgerListPage()}}> &lt;&lt; Back</p>
+            <div className="flex flex-col md:flex-row gap-10">  
+                
                 {/* <BurgerImagePanel */}
-                 <BurgerImagePanel />
+                <BurgerImagePanel burgerName={burgerName} burgerDescription={burgerDescription} />
                  <div className="flex-1">
                     {selectedSideCardName && (
                         <BurgerSelections sendSideNameToBeRemoved={getSideNameToremoveSelectedItem} selectedItem={selectedSideCardName} />

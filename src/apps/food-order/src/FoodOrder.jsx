@@ -10,9 +10,11 @@ function FoodOrder() {
     //'https://muksalfoodorder-g7htfpcpdvccdaec.canadacentral-01.azurewebsites.net/api/burgers';
 
   const [burgersData, setBurgersData] = useState([]);
+  const [burgerName, setBurgerName] = useState("");
+  const [burgerDescription, setBurgerDescription] = useState("");
   const [loading, setLoading] = useState(false);
-  const [isBurgerSelected, SetIsBurgerSelected] = useState(false); // store full burger object
-  const [burgerSidesData, SetBurgerSidesData] = useState([{}]); // store full burger sides data
+  const [isBurgerSelected, setIsBurgerSelected] = useState(false); // store full burger object
+  const [burgerSidesData, setBurgerSidesData] = useState([{}]); // store full burger sides data
 
   useEffect(() => {
   //  const fetchBurgers = async () => {
@@ -38,12 +40,25 @@ function FoodOrder() {
     //fetchBurgers();
   }, []);
 
-  const getSelectedBurgerId = (burgerDataId) => { 
+  const loadBurgerOrderPage = () => {
+    //set selectedBurger to true to show the BurgerOrderPage
+    setIsBurgerSelected(true)
+  }
+
+  const getSelectedBurgerName = (burgerName) => { 
+    setBurgerName(burgerName)
+    setBurgerDescription()
     //SetBurgerSidesData use this when the data returns
     //use this to call Fries, Sauce and Drinks data for <Burger page
-    //set selectedBurger to true to show the BurgerOrderPage
-    SetIsBurgerSelected(true)
+    loadBurgerOrderPage(burgerName); //TODO - add this to utils method
+
   }
+  const getSelectedBurgerDescription = (burgerDescription ) => {
+    setBurgerDescription(burgerDescription);
+  }
+
+
+
 
   return (
     <div >
@@ -52,7 +67,10 @@ function FoodOrder() {
           <Spinner />
         </div>
       ) : isBurgerSelected ? (
-          <BurgerOrderPage burgerSidesData={burgerSidesData} goBack={() => SetIsBurgerSelected(false)} />
+   
+
+          <BurgerOrderPage burgerName={burgerName} burgerDescription={burgerDescription} burgerSidesData={burgerSidesData} backToBurgerListPage={() => setIsBurgerSelected(false)} />
+         
         ) : (
             <div className="px-4 py-8">  
               <h2 className="text-2xl font-semibold text-center mb-6">Muksal Fictitious Burger Joint</h2>
@@ -64,7 +82,8 @@ function FoodOrder() {
             <BurgerList
               key={burgerData.burgerId}
               burgerData={burgerData}
-              sendSelectedBurgerId={getSelectedBurgerId}
+              sendSelectedBurgerName={getSelectedBurgerName}
+              sendBurgerDescription={getSelectedBurgerDescription}
               //onSelect={() => setSelectedBurger(burgerData)}
             />
           ))}
