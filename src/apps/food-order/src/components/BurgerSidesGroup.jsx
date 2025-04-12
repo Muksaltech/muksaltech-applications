@@ -22,7 +22,7 @@ function BurgerSidesGroup({ sidesData, sendSelectedCard }) {
     return (
         <>
             <BurgerSidesHeading title={sideCardsHeading} />
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 mb-4 gap-4">
                 {sidesCardData.map((side, i) => (
                     <BurgerSidesCard sendSidesCardData={setSelectedSideCard} sidesData={side} key={i} />
                 ))}

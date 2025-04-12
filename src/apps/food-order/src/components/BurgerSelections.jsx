@@ -1,15 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
-
-export default function BurgerSelections({ selectedItem }) {
+export default function BurgerSelections({ selectedItem, sendSideNameToBeRemoved }) {
     const [selections, setSelections] = useState([]);
+
     //let selections = [];
 
     useEffect(() => {
         const updateSelections = () => {
-            if (selectedItem !== null) {
-                setSelections(prev => [...prev, selectedItem])
-            } 
+            console.log(selectedItem)
+           // if (selectedItem !== null) {
+             //determine if we are removing or adding
+             //if adding,
+             // field present?
+            if (selectedItem.hasOwnProperty('add') && selectedItem.selected !== null ) {
+                   // add to selections
+                   setSelections(prev => [...prev, selectedItem.selected]) // stack the next selection
+            } else {  
+                    //if removing - filter out the incoming name from selections array
+                    //selections.filter
+                //remove from selections
+                const reduceSelections = selections.filter(item => item !== selectedItem.selected)
+                setSelections(reduceSelections) // remove the next selection from stack
+               
+                }
+          //  }    
         }  
         updateSelections();
        // console.log(selections)
@@ -30,7 +44,7 @@ export default function BurgerSelections({ selectedItem }) {
                             <p className="font-semibold text-lg">{item}</p>
                         
                             <p className="text-sm text-gray-600">Adds 200 cals</p>
-                            <button className="mt-1 text-red-600 text-sm flex items-center gap-1 hover:underline">
+                            <button onClick={() => { sendSideNameToBeRemoved(item) } } className="mt-1 text-red-600 text-sm flex items-center gap-1 hover:underline">
                                 <span>✖</span> Remove
                             </button>
                         </div>

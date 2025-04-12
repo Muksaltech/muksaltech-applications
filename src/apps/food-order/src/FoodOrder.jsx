@@ -14,7 +14,6 @@ function FoodOrder() {
   const [isBurgerSelected, SetIsBurgerSelected] = useState(false); // store full burger object
   const [burgerSidesData, SetBurgerSidesData] = useState([{}]); // store full burger sides data
 
-
   useEffect(() => {
   //  const fetchBurgers = async () => {
       //try {
