@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import BurgerList from './components/BurgerList';
+import BurgerListPage from './components/BurgerListPage';
 import Spinner from '../../../Components/Spinner';
 import BurgerOrderPage from './components/BurgerOrderPage'; // import your new page
 import './FoodOrder.css';
 import BurgerData from '../public/BurgerData.json'
+import BurgerOrderReviewPage from './components/BurgerOrderReviewPage';
 
 function FoodOrder() {
   //const getBurgersDataFromAzureCloud =
@@ -15,6 +16,8 @@ function FoodOrder() {
   const [loading, setLoading] = useState(false);
   const [isBurgerSelected, setIsBurgerSelected] = useState(false); // store full burger object
   const [burgerSidesData, setBurgerSidesData] = useState([{}]); // store full burger sides data
+
+  const [isAddToBagButtonClicked, setIsAddToBagButtonClicked] = useState(false); // store full burger object
 
   useEffect(() => {
   //  const fetchBurgers = async () => {
@@ -47,7 +50,6 @@ function FoodOrder() {
 
   const getSelectedBurgerName = (burgerName) => { 
     setBurgerName(burgerName)
-    setBurgerDescription()
     //SetBurgerSidesData use this when the data returns
     //use this to call Fries, Sauce and Drinks data for <Burger page
     loadBurgerOrderPage(burgerName); //TODO - add this to utils method
@@ -57,9 +59,6 @@ function FoodOrder() {
     setBurgerDescription(burgerDescription);
   }
 
-
-
-
   return (
     <div >
       {loading ? (
@@ -67,11 +66,17 @@ function FoodOrder() {
           <Spinner />
         </div>
       ) : isBurgerSelected ? (
-   
-
-          <BurgerOrderPage burgerName={burgerName} burgerDescription={burgerDescription} burgerSidesData={burgerSidesData} backToBurgerListPage={() => setIsBurgerSelected(false)} />
-         
-        ) : (
+          <BurgerOrderPage
+            burgerName={burgerName}
+            burgerDescription={burgerDescription}
+            burgerSidesData={burgerSidesData}
+            backToBurgerListPage={() => setIsBurgerSelected(false)}
+            sendReviewPageLoadNotification={() => { setIsAddToBagButtonClicked(true); setIsBurgerSelected(false) }}
+          />
+       
+      ) : isAddToBagButtonClicked ? (
+            <BurgerOrderReviewPage  />
+      ) :(
             <div className="px-4 py-8">  
               <h2 className="text-2xl font-semibold text-center mb-6">Muksal Fictitious Burger Joint</h2>
               <p className="text-center mb-8 text-gray-400 max-w-xl mx-auto">
@@ -79,7 +84,7 @@ function FoodOrder() {
               </p>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {burgersData.map((burgerData) => (
-            <BurgerList
+            <BurgerListPage
               key={burgerData.burgerId}
               burgerData={burgerData}
               sendSelectedBurgerName={getSelectedBurgerName}
@@ -87,8 +92,8 @@ function FoodOrder() {
               //onSelect={() => setSelectedBurger(burgerData)}
             />
           ))}
-              </div>
-            </div> 
+          </div>
+        </div> 
       )}
     </div>
   );

@@ -7,7 +7,6 @@ export default function BurgerSelections({ selectedItem, sendSideNameToBeRemoved
 
     useEffect(() => {
         const updateSelections = () => {
-            console.log(selectedItem)
            // if (selectedItem !== null) {
              //determine if we are removing or adding
              //if adding,

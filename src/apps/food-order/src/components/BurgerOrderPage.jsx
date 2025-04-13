@@ -7,11 +7,12 @@ import BurgerSidesGroup from "./BurgerSidesGroup";
 import SidesDataJson from '../../SidesData.json';
 import BurgerSelections from './BurgerSelections';
 
-export default function BurgerOrderPage({ burgerSidesData, backToBurgerListPage, burgerName, burgerDescription }) {
+export default function BurgerOrderPage({ burgerSidesData, backToBurgerListPage, burgerName, burgerDescription, sendReviewPageLoadNotification }) {
     const [unFilteredData, setUnfilteredData] = useState(SidesDataJson)
     const [selectedSideCard, setSelectedSideCard] = useState(null)
     const [selectedSideCardName, setSelectedSideCardName] = useState(null)
     const [filteredData, setFilteredData] = useState(SidesDataJson)
+    const [loadReviewPage, setLoadReviewPage] = useState(false)
 
 
     useEffect(() => { 
@@ -42,7 +43,6 @@ export default function BurgerOrderPage({ burgerSidesData, backToBurgerListPage,
 
         //increases selections
         setSelectedSideCardName({"selected": selectedDataCardforAddition, "add": "add"} ) // name of a side card asigned to setSelectedSideCardName with "add" keyword so that it stacks on selections array is <Selections
-   
         scrollToTopPage();
    
     }
@@ -54,13 +54,17 @@ export default function BurgerOrderPage({ burgerSidesData, backToBurgerListPage,
         
         //filter only one object
         const burgerGroupToStack = SidesDataJson.filter(item => item.sides.includes(selectedDataCardForRemoval))
-        console.log(burgerGroupToStack);
+       
         //decreases selections
         setSelectedSideCardName({ "selected": selectedDataCardForRemoval, "remove": "remove" }) // name of a side card asigned to setSelectedSideCardName with "add" keyword so that it stacks on selections array is <Selections
         
         //increase burgergroup
         setFilteredData(prev => [...prev, ...burgerGroupToStack])
         scrollToTopPage();
+    }
+
+    const getReviewPageLoadNotification = (pageName) => {
+        sendReviewPageLoadNotification(pageName);
     }
 
     return (
@@ -82,7 +86,7 @@ export default function BurgerOrderPage({ burgerSidesData, backToBurgerListPage,
             </div>
 
             {/* Footer: Add to Bag */}
-            <BurgerPricePane />
+            <BurgerPricePane sendReviewPageLoadNotification={getReviewPageLoadNotification} />
         </div>
     );
 }
