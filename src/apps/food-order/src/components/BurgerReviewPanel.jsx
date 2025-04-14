@@ -35,8 +35,6 @@ const BurgerReviewPanel = () => {
                             />
                             <div>
                                 <p className="font-semibold">Your Drink</p>
-
-                             
                             </div>
                         </div>
                   
